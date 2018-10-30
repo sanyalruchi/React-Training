@@ -1,9 +1,7 @@
 export const fetchData = async () => {
-  console.log("inside api");
   try {
     const response = await fetch("https://reqres.in/api/users?page=2");
     const data = await response.json();
-    console.log(data, "in fetchData api");
     return data;
   } catch (e) {
     console.log(e, "error");
@@ -11,7 +9,6 @@ export const fetchData = async () => {
 };
 
 export const updateData = async userData => {
-  console.log(userData, "updated data in api");
   try {
     const response = await fetch("https://reqres.in/api/users/2", {
       method: "POST",
@@ -29,8 +26,6 @@ export const updateData = async userData => {
 };
 
 export const addUserData = async userData => {
-  
-  console.log(userData, "updated data in add api");
   try {
     const response = await fetch("https://reqres.in/api/users/2", {
       method: "POST",
@@ -43,6 +38,17 @@ export const addUserData = async userData => {
     alert("data added successfully");
     return responseJson;
   } catch (e) {
-    console.log(e,"error");
+    console.log(e, "error");
   }
-} ;
+};
+
+export const deleteUser = async id => {
+  try {
+    const response = await fetch(`https://reqres.in/api/users/${id}`);
+    const responseJson = await response.json();
+    alert("data deleted successfully");
+    return responseJson;
+  } catch (e) {
+    console.log(e, "error");
+  }
+};

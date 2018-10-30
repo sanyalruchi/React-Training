@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import "./UpdateUser.css";
 import { Col, Label, Button, Form, FormGroup, Input } from "reactstrap";
 
+// component to display 'Update User' form
 class UpdateUser extends Component {
   constructor(props) {
     super(props);
@@ -8,17 +10,17 @@ class UpdateUser extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // method to map updated values to state
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
-    console.log(this.props, "in update User");
     return (
       <div className="update-form">
         <Form>
           <FormGroup row>
-            <Label sm={1}>Id :</Label>
+            <Label sm={2}>Id :</Label>
             <Col sm={4}>
               <Input
                 type="text"
@@ -29,7 +31,7 @@ class UpdateUser extends Component {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={1}>First Name :</Label>
+            <Label sm={2}>First Name :</Label>
             <Col sm={4}>
               <Input
                 type="text"
@@ -40,7 +42,7 @@ class UpdateUser extends Component {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={1}>Last Name :</Label>
+            <Label sm={2}>Last Name :</Label>
             <Col sm={4}>
               <Input
                 type="text"
@@ -54,7 +56,6 @@ class UpdateUser extends Component {
           <Button
             onClick={() => {
               return this.props.onUpdate(this.state);
-
             }}
           >
             Update

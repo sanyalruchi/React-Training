@@ -1,9 +1,8 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import {fetchData} from "./../Api";
+import { fetchData } from "./../Api";
 import * as types from "./../actions/actionTypes";
 
 function* getUserData() {
-  console.log("inside getuserdata");
   try {
     const userData = yield call(fetchData);
     yield put({
@@ -11,7 +10,6 @@ function* getUserData() {
       payload: userData
     });
   } catch (e) {
-    console.log(e, "error");
     yield put({
       type: types.REQUEST_USER_DATA_FAILED
     });
@@ -19,6 +17,5 @@ function* getUserData() {
 }
 
 export default function* rootSaga() {
-  console.log("in rootsaga");
   yield takeLatest(types.REQUEST_USER_DATA, getUserData);
 }

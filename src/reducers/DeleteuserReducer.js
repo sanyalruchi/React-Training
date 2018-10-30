@@ -4,21 +4,21 @@ const initialState = {
   fetching: true
 };
 
-const addUserData = (state = initialState, { type, payload }) => {
+const deleteUserData = (state = initialState, { type, payload }) => {
   switch (type) {
-    case types.ADD_USER_DATA:
+    case types.DELETE_USER_DATA:
       return {
         ...state
       };
 
-    case types.ADD_USER_DATA_SUCCESS:
+    case types.DELETE_USER_DATA_SUCCESS:
       return {
         ...state,
         userData: payload,
         fetching: false
       };
 
-    case types.ADD_USER_DATA_FAILED:
+    case types.DELETE_USER_DATA_FAILED:
       return {
         ...state
       };
@@ -28,4 +28,4 @@ const addUserData = (state = initialState, { type, payload }) => {
   }
 };
 
-export default addUserData;
+export default deleteUserData;

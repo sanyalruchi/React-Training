@@ -2,25 +2,35 @@ import React, { Component } from "react";
 import UpdateUser from "../../components/updateUser/UpdateUser";
 import connect from "react-redux/lib/connect/connect";
 import getUsers from "../../selectors";
-import {updateUserData} from '../../actions/Actions';
+import { updateUserData } from "../../actions/Actions";
 
 class UpdateUserContainer extends Component {
   constructor(props) {
     super(props);
-    this.onUpdate=this.onUpdate.bind(this);
+    this.onUpdate = this.onUpdate.bind(this);
     this.state = {
       currentUser: []
     };
   }
-  callUsers(users, id) {
+
+  /**
+   * to fetch selected user data
+   * @param {list of users} users
+   * @param {id of selected user} id
+   */
+  selctedUser(users, id) {
     let data;
     if (users.data && id) {
       data = users.data.filter(data => data.id == id);
     }
     return data;
   }
-  onUpdate(updatedData){
-    console.log(updatedData, "hdjhsgvcs")
+
+  /**
+   * to dispatch fucntion to update data
+   * @param {updated data of user} updatedData
+   */
+  onUpdate(updatedData) {
     this.props.updateUserData(updatedData);
     this.props.history.push("/");
   }
@@ -28,23 +38,35 @@ class UpdateUserContainer extends Component {
   render() {
     const { id } = this.props && this.props.match && this.props.match.params;
     const { fetchUser } = this.props;
-    let users = this.callUsers(fetchUser, id);
+    let users = this.selctedUser(fetchUser, id);
     return (
       <div className="update-form">
-       {users && <UpdateUser user={users[0]} onUpdate={this.onUpdate} /> } 
+        {users && <UpdateUser user={users[0]} onUpdate={this.onUpdate} />}
       </div>
     );
   }
 }
+
+/**
+ * to map component state to props
+ * @param {state in store} state
+ */
 const mapStateToProps = state => {
   return {
     fetchUser: getUsers(state.fetchUserData)
   };
 };
 
+/**
+ * to dispatch action -  updateUserData
+ */
 const mapDispatchToProps = dispatch => {
   return {
-    updateUserData: (updatedData) => dispatch(updateUserData(updatedData))
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateUserContainer);
+    updateUserData: updatedData => dispatch(updateUserData(updatedData))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UpdateUserContainer);

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import { Table, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
+// component to display dashboard data
 const Dashboard = props => {
-  console.log(props.userData, "in dashboard");
   return (
     <Table responsive bordered>
       <thead>
@@ -17,9 +17,7 @@ const Dashboard = props => {
       </thead>
 
       <tbody>
-
-        {props.userData.map((user) => {
-
+        {props.userData.map(user => {
           return (
             <tr key={user.id}>
               <td>{user.id}</td>
@@ -29,19 +27,19 @@ const Dashboard = props => {
                 <img src={user.avatar} />
               </td>
               <td>
-                <Link to={{ pathname:`/updateUser/${user.id}`}}>
-                  <Button>Update</Button> 
+                <Link to={{ pathname: `/updateUser/${user.id}` }}>
+                  <Button>Update</Button>
                 </Link>
               </td>
               <td>
-                <Button onClick="onDelete()">Delete</Button>
+                <Button onClick={() => props.onDelete(user.id)}>Delete</Button>
               </td>
             </tr>
           );
         })}
       </tbody>
     </Table>
-  )
-}
+  );
+};
 
 export default Dashboard;

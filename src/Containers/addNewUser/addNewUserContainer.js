@@ -3,25 +3,25 @@ import connect from "react-redux/lib/connect/connect";
 import AddNewUser from "../../components/addNewUser/AddNewUser";
 import { addUserData } from "../../actions/Actions";
 
+// container component for Add User component
 class AddNewUserContainer extends Component {
   constructor(props) {
     super(props);
-    console.log("inside constructor");
     this.state = {
       formdata: {}
     };
   }
 
-  handleAdd=(userData)=> {
-    console.log(userData, "data in handleAdd container");
-    console.log(" props in handle add method", this.props.match);
+  /**
+   * function to add new user
+   * userData - new user data
+   */
+  handleAdd = userData => {
     this.props.addNewUser(userData);
     this.props.history.push("/");
-    // dispatch({type: ADD_USER_DATA, data: userdata});
-  }
+  };
 
   render() {
-    console.log("inside render");
     return (
       <div>
         <AddNewUser onAddUser={this.handleAdd} />
@@ -30,15 +30,10 @@ class AddNewUserContainer extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   console.log(state, "props in add container statetoprops");
-//   return {
-//     props: state.addUserData
-//   };
-// };
-
+/**
+ * to dispatch action -  addUserData
+ */
 const mapDispatchToProps = dispatch => {
-  console.log("inside dispatch to props");
   return {
     addNewUser: userData => dispatch(addUserData(userData))
   };
@@ -48,5 +43,3 @@ export default connect(
   null,
   mapDispatchToProps
 )(AddNewUserContainer);
-
-//export default AddNewUserContainer;
