@@ -5,9 +5,13 @@ import "./dashboard.css";
 import Dashboard from "../../components/dashboard/Dashboard";
 import { connect } from "react-redux";
 import { requestUserData, deleteUserData } from "../../actions/Actions";
+import ReactSelect from "../../components/reactSelect";
+import AppSidebar from '../../components/sidebar/index';
 
 class DashboardContainer extends Component {
+
   componentDidMount() {
+    console.log("inside did mount")
     this.props.requestUserData();
   }
 
@@ -22,15 +26,20 @@ class DashboardContainer extends Component {
       this.props.fetchUserData.userData;
     return (
       <div>
+        
         <div>
           <Link to={{ pathname: `/addNewUser` }}>
             <Button className="add-button">Add Repo</Button>
           </Link>
         </div>
+        <div >
         {users &&
           users.data && (
             <Dashboard userData={users.data} onDelete={this.onDeleteUser} />
           )}
+          <ReactSelect></ReactSelect>
+        </div>
+        
       </div>
     );
   }

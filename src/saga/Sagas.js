@@ -16,6 +16,6 @@ function* getUserData() {
   }
 }
 
-export default function* rootSaga() {
+export default function* fetchDataSaga() {
   yield takeLatest(types.REQUEST_USER_DATA, getUserData);
 }
