@@ -6,10 +6,13 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "react-redux";
 import store from './Store';
-
+import {Suspense} from 'react';
+import LoadingSpinner from './components/LoadingSpinner';
 ReactDOM.render(
   <Provider store= {store}>
+    <Suspense fallback={LoadingSpinner}>
     <App/>
+    </Suspense>
   </Provider>,
   document.getElementById("root")
 );

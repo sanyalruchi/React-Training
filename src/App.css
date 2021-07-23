@@ -4,7 +4,16 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 9vmin;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .App-header {
@@ -18,15 +27,16 @@
   color: white;
 }
 
+.rowStyle {
+  flex-direction: row;
+    display: table-row;
+    align-items: baseline;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

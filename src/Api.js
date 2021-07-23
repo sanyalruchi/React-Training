@@ -1,3 +1,4 @@
+//https://jsonplaceholder.typicode.com/albums/1/photos
 export const fetchData = async () => {
   try {
     const response = await fetch("https://reqres.in/api/users?page=2");
@@ -7,6 +8,17 @@ export const fetchData = async () => {
     console.log(e, "error");
   }
 };
+
+export const getUserData = async () => {
+  console.log("inside get user data api");
+  try{
+    const response = await fetch("https://reqres.in/api/users/2");
+    const data = await response.json();
+    return data;
+  } catch(e){
+    console.log(e, "error");
+  }
+}
 
 export const updateData = async userData => {
   try {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import UpdateUser from "../../components/updateUser/UpdateUser";
 import connect from "react-redux/lib/connect/connect";
-import getUsers from "../../selectors";
+// import getUsers from "../../selectors";
 import { updateUserData } from "../../actions/Actions";
 
 class UpdateUserContainer extends Component {
@@ -21,7 +21,7 @@ class UpdateUserContainer extends Component {
   selctedUser(users, id) {
     let data;
     if (users.data && id) {
-      data = users.data.filter(data => data.id == id);
+      data = users.data.filter(data => data.id === id);
     }
     return data;
   }
@@ -52,8 +52,9 @@ class UpdateUserContainer extends Component {
  * @param {state in store} state
  */
 const mapStateToProps = state => {
+  console.log(state, "state in update")
   return {
-    fetchUser: getUsers(state.fetchUserData)
+    //fetchUser: getUsers(state.fetchUserData)
   };
 };
 

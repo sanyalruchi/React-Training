@@ -22,6 +22,25 @@ export function requestUserDataFailed() {
   };
 }
 
+export function getUserData(){
+  return{
+    type: types.GET_USER_DATA
+  }
+}
+
+export function getUserDataSuccess(payload){
+  return{
+    type: types.GET_USER_DATA_SUCCESS ,
+    payload
+  }
+}
+
+export function getUserDataFailed(){
+  return{
+    type: types.GET_USER_DATA_FAILED
+  }
+}
+
 // action to update User data
 export const updateUserData = payload => ({
   type: types.UPDATE_USER_DATA,

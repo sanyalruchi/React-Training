@@ -6,6 +6,23 @@ const initialState = {
 
 const updateUserData = (state = initialState, { type, payload }) => {
   switch (type) {
+    case types.GET_USER_DATA:
+      return {
+        ...state
+      };
+
+    case types.GET_USER_DATA_SUCCESS:
+      return {
+        ...state,
+        userData: payload,
+        fetching: false
+      };
+
+    case types.GET_USER_DATA_FAILED:
+      return {
+        ...state
+      };
+
     case types.UPDATE_USER_DATA:
       return {
         ...state

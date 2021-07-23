@@ -8,6 +8,8 @@ class UpdateUser extends Component {
     super(props);
     this.state = props.user;
     this.handleChange = this.handleChange.bind(this);
+    console.log(this.state, "state");
+    console.log(props.user, "props")
   }
 
   // method to map updated values to state
@@ -16,6 +18,8 @@ class UpdateUser extends Component {
   }
 
   render() {
+    // console.log(this.state, "state");
+    // console.log(this.props.user, "props")
     return (
       <div className="update-form">
         <Form>

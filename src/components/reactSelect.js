@@ -1,12 +1,12 @@
 import React from 'react';
-import Select, { components } from 'react-select';
-const { Option } = components;
-const IconOption = (props) => (
-  <Option {...props}>
+import Select from 'react-select';
+//const { Option } = components;
+// const IconOption = (props) => (
+//   <Option {...props}>
     
-    {props.data.label}
-  </Option>
-)
+//     {props.data.label}
+//   </Option>
+// )
 
  
 const options = [
