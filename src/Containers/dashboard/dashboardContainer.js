@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import "./dashboard.css";
 import { connect } from "react-redux";
 import { requestUserData, deleteUserData } from "../../actions/Actions";
-// import ReactSelect from "../../components/reactSelect";
-// import AppSidebar from '../../components/sidebar/index';
 import DisplaySelectedUser from '../DisplayUser/displaySelectedUser';
 import ErrorBoundary from '../ErrorBoundary';
 
